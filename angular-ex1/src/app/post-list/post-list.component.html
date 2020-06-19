@@ -1,0 +1,14 @@
+<!-- Posts -->
+<li
+  *ngFor="let post of posts"
+  [ngClass]="{
+    'list-group-item': true
+  }"
+>
+  <app-post-list-item
+    [postTitle]="post.title"
+    [postContent]="post.content"
+    [postLoveIts]="post.loveIts"
+    [postDate]="post.theDate"
+  ></app-post-list-item>
+</li>
