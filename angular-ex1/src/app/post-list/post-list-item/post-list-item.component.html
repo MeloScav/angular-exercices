@@ -1,0 +1,10 @@
+<!-- Post content -->
+<p>{{ postDate | date: "short" }}</p>
+<h2 [ngStyle]="{ color: getColor() }">{{ postTitle }}</h2>
+<p>{{ postContent }}</p>
+<button class="btn btn-success mr-1" (click)="onLoveIt()">
+  Love it
+</button>
+<button class="btn btn-danger" (click)="onDontLoveIt()">
+  Don't love it
+</button>
