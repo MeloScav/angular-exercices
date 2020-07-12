@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Post } from '../models/post.model';
 import { Subject } from 'rxjs';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root',
@@ -34,14 +35,40 @@ export class PostsService {
   }
 
   // SAVE
-  savePosts() {}
+  savePosts() {
+    firebase.database().ref('/posts').set(this.posts);
+  }
 
   // GET POSTS
-  getPost() {}
+  getPosts() {
+    firebase
+      .database()
+      .ref('/posts')
+      .on('value', (data) => {
+        this.posts = data.val() ? data.val() : [];
+      });
+  }
 
   // NEW POST
-  createNewPost() {}
+  createNewPost(newPost: Post) {
+    this.posts.push(newPost);
+    this.savePosts();
+    this.emitPosts();
+  }
 
-  // REMOVE BOOK
-  removeBook() {}
+  // REMOVE POST
+  removePost(post: Post) {
+    // Retrieve the index
+    const postIndexToRemove = this.posts.findIndex((el) => {
+      if ((el = post)) {
+        return true;
+      }
+    });
+    // Remove this index
+    this.posts.splice(postIndexToRemove, 1);
+    // Save the array
+    this.savePosts();
+    // Emit
+    this.emitPosts();
+  }
 }
