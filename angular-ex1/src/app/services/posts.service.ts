@@ -8,22 +8,7 @@ import * as firebase from 'firebase';
 })
 export class PostsService {
   // Local array of Post objects
-  posts: Post[] = [
-    {
-      title: 'Mon premier post',
-      content:
-        'Nulla laboris consequat laboris voluptate nostrud ea in est ut.',
-      loveIts: 0,
-      theDate: new Date(),
-    },
-    {
-      title: 'Mon deuxième post',
-      content:
-        'Qui nulla aliquip duis Lorem excepteur laboris anim sunt dolore dolore aute officia est.',
-      loveIts: 0,
-      theDate: new Date(),
-    },
-  ];
+  posts: Post[] = [];
   // Subject
   postsSubject = new Subject<Post[]>();
 
