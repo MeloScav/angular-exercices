@@ -1,5 +1,8 @@
 export class Post {
-  loveIts: number;
-  theDate: Date;
-  constructor(public title: string, public content: string) {}
+  constructor(
+    public title: string,
+    public content: string,
+    public loveIts: number,
+    public theDate: Date
+  ) {}
 }
