@@ -1,14 +1,10 @@
 <!-- Posts -->
-<li
-  *ngFor="let post of posts"
-  [ngClass]="{
-    'list-group-item': true
-  }"
->
-  <app-post-list-item
-    [postTitle]="post.title"
-    [postContent]="post.content"
-    [postLoveIts]="post.loveIts"
-    [postDate]="post.theDate"
-  ></app-post-list-item>
-</li>
+<div class="container">
+  <h1 class="my-4">Posts</h1>
+  <ul class="list-group">
+    <app-post-list-item></app-post-list-item>
+  </ul>
+  <button class="btn btn-primary my-4" (click)="onNewPost()">
+    Nouveau post
+  </button>
+</div>
