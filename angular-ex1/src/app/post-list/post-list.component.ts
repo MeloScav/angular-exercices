@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -6,9 +7,12 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./post-list.component.scss'],
 })
 export class PostListComponent implements OnInit {
-  @Input() posts: [];
-
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit(): void {}
+
+  // BUTTON NEW POST
+  onNewPost() {
+    this.router.navigate(['new']);
+  }
 }
