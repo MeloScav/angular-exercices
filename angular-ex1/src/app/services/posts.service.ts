@@ -31,6 +31,7 @@ export class PostsService {
       .ref('/posts')
       .on('value', (data) => {
         this.posts = data.val() ? data.val() : [];
+        this.emitPosts();
       });
   }
 
@@ -56,4 +57,10 @@ export class PostsService {
     // Emit
     this.emitPosts();
   }
+
+  // LOVE POST
+  lovePost() {}
+
+  // // DON'T LOVE POST
+  dontLovePost() {}
 }
