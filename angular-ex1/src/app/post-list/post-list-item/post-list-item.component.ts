@@ -27,9 +27,13 @@ export class PostListItemComponent implements OnInit, OnDestroy {
     this.postsService.emitPosts();
   }
 
-  onLoveIt() {}
+  onLoveIt() {
+    this.postsService.lovePost();
+  }
 
-  onDontLoveIt() {}
+  onDontLoveIt() {
+    this.postsService.dontLovePost();
+  }
 
   // BUTTON DELETE
   onDeletePost(post: Post) {
