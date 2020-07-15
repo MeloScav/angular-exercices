@@ -28,6 +28,8 @@ export class PostFormComponent implements OnInit {
     this.postForm = this.formBuilder.group({
       title: ['', Validators.required],
       content: ['', Validators.required],
+      loveIts: [0],
+      theDate: [new Date()],
     });
   }
 
@@ -35,8 +37,8 @@ export class PostFormComponent implements OnInit {
   onSavePost() {
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
-    const loveIts = 0;
-    const theDate = new Date();
+    const loveIts = this.postForm.get('loveIts').value;
+    const theDate = this.postForm.get('theDate').value;
     // New post and save
     const newPost = new Post(title, content, loveIts, theDate);
     this.postsService.createNewPost(newPost);
