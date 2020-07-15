@@ -6,17 +6,15 @@
     'list-group-item': true
   }"
 >
-  <h2>{{ post.title }}</h2>
+  <h2 [ngStyle]="{ color: getColor(post) }">{{ post.title }}</h2>
   <p>{{ post.content }}</p>
-  <button class="btn btn-success mr-1" (click)="onLoveIt()">
+  <button class="btn btn-success mr-1" (click)="onLoveIt(post)">
     Love it
   </button>
-  <button class="btn btn-danger" (click)="onDontLoveIt()">
+  <button class="btn btn-danger" (click)="onDontLoveIt(post)">
     Don't love it
   </button>
   <button class="btn btn-primary" (click)="onDeletePost(post)">
     Supprimer
   </button>
 </li>
-
-<!--   <h2 [ngStyle]="{ color: getColor() }">{{ post.title }}</h2> -->

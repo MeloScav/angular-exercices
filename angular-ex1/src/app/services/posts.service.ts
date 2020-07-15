@@ -59,16 +59,20 @@ export class PostsService {
   }
 
   // LOVE POST
-  lovePost() {
-    this.posts.forEach((el) => {
-      el.loveIts = el.loveIts + 1;
-    });
+  lovePost(post: Post) {
+    post.loveIts = post.loveIts + 1;
+    // Save
+    this.savePosts();
+    // Emit
+    this.emitPosts();
   }
 
   // // DON'T LOVE POST
-  dontLovePost() {
-    this.posts.forEach((el) => {
-      el.loveIts = el.loveIts - 1;
-    });
+  dontLovePost(post: Post) {
+    post.loveIts = post.loveIts - 1;
+    // Save
+    this.savePosts();
+    // Emit
+    this.emitPosts();
   }
 }

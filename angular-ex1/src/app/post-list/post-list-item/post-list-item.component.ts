@@ -11,6 +11,7 @@ import { Subscription } from 'rxjs';
 export class PostListItemComponent implements OnInit, OnDestroy {
   // Local array
   posts: Post[];
+
   // Subscription
   postsSubscription: Subscription;
 
@@ -27,12 +28,12 @@ export class PostListItemComponent implements OnInit, OnDestroy {
     this.postsService.emitPosts();
   }
 
-  onLoveIt() {
-    this.postsService.lovePost();
+  onLoveIt(post: Post) {
+    this.postsService.lovePost(post);
   }
 
-  onDontLoveIt() {
-    this.postsService.dontLovePost();
+  onDontLoveIt(post: Post) {
+    this.postsService.dontLovePost(post);
   }
 
   // BUTTON DELETE
@@ -40,13 +41,13 @@ export class PostListItemComponent implements OnInit, OnDestroy {
     this.postsService.removePost(post);
   }
 
-  // getColor() {
-  //   if (this.postLoveIts > 0) {
-  //     return 'green';
-  //   } else if (this.postLoveIts < 0) {
-  //     return 'red';
-  //   }
-  // }
+  getColor(post: Post) {
+    if (post.loveIts > 0) {
+      return 'green';
+    } else if (post.loveIts < 0) {
+      return 'red';
+    }
+  }
 
   ngOnDestroy() {
     this.postsSubscription.unsubscribe();
