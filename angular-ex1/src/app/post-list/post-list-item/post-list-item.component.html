@@ -1,13 +1,14 @@
 <!-- Post content -->
 <!-- <p>{{ postDate | date: "short" }}</p> -->
 <li
-  *ngFor="let post of posts; let i = index"
   [ngClass]="{
-    'list-group-item': true
+    'list-group-item': true,
+    'list-group-item-success': postLoveIts > 0,
+    'list-group-item-danger': 0 > postLoveIts
   }"
 >
-  <h2 [ngStyle]="{ color: getColor(post) }">{{ post.title }}</h2>
-  <p>{{ post.content }}</p>
+  <h2 [ngStyle]="{ color: getColor() }">{{ postTitle }}</h2>
+  <p>{{ postContent }}</p>
   <button class="btn btn-success mr-1" (click)="onLoveIt(post)">
     Love it
   </button>
