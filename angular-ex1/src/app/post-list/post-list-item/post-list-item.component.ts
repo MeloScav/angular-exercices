@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from '../../models/post.model';
 import { PostsService } from '../../services/posts.service';
 
 @Component({
@@ -12,6 +11,7 @@ export class PostListItemComponent implements OnInit {
   @Input() postTitle: string;
   @Input() postContent: string;
   @Input() postLoveIts: number;
+  @Input() postDate: Date;
 
   constructor(private postsService: PostsService) {}
 
