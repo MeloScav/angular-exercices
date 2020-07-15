@@ -67,7 +67,7 @@ export class PostsService {
     this.emitPosts();
   }
 
-  // // DON'T LOVE POST
+  // DON'T LOVE POST
   dontLovePost(post: Post) {
     post.loveIts = post.loveIts - 1;
     // Save
