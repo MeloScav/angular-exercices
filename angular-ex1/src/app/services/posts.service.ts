@@ -9,6 +9,7 @@ import * as firebase from 'firebase';
 export class PostsService {
   // Local array of Post objects
   posts: Post[] = [];
+
   // Subject
   postsSubject = new Subject<Post[]>();
 
@@ -46,10 +47,11 @@ export class PostsService {
   removePost(post: Post) {
     // Retrieve the index
     const postIndexToRemove = this.posts.findIndex((el) => {
-      if ((el = post)) {
+      if (el == post) {
         return true;
       }
     });
+
     // Remove this index
     this.posts.splice(postIndexToRemove, 1);
     // Save the array
