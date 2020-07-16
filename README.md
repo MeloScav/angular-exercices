@@ -4,7 +4,7 @@ Some exercises to learn Angular.
 
 ## Exercie 1
 
-A post blog.
+A post blog made with Angular, Firebase and Bootstrap.
 
 ### Use
 
