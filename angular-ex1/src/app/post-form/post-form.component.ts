@@ -29,7 +29,7 @@ export class PostFormComponent implements OnInit {
       title: ['', Validators.required],
       content: ['', Validators.required],
       loveIts: [0],
-      theDate: [new Date()],
+      theDate: [new Date().toString()],
     });
   }
 

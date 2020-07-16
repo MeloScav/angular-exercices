@@ -6,6 +6,8 @@
     'list-group-item-danger': 0 > postLoveIts
   }"
 >
+  <p>{{ postDate | date: "short" }}</p>
+
   <h2 [ngStyle]="{ color: getColor() }">{{ postTitle }}</h2>
   <p>{{ postContent }}</p>
   <button class="btn btn-success mr-1" (click)="onLoveIt(post)">
