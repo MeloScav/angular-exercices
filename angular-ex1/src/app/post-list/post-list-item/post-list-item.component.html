@@ -6,17 +6,21 @@
     'list-group-item-danger': 0 > postLoveIts
   }"
 >
-  <p>{{ postDate | date: "short" }}</p>
+  <p class="mb-0 text-right">{{ postDate | date: "short" }}</p>
 
   <h2 [ngStyle]="{ color: getColor() }">{{ postTitle }}</h2>
   <p>{{ postContent }}</p>
-  <button class="btn btn-success mr-1" (click)="onLoveIt(post)">
-    Love it
-  </button>
-  <button class="btn btn-danger" (click)="onDontLoveIt(post)">
-    Don't love it
-  </button>
-  <button class="btn btn-primary" (click)="onDeletePost(post)">
-    Supprimer
-  </button>
+  <div class="d-flex flex-row flex-wrap justify-content-between">
+    <div>
+      <button class="btn btn-success mr-1 mt-1" (click)="onLoveIt(post)">
+        Love it
+      </button>
+      <button class="btn btn-danger mt-1" (click)="onDontLoveIt(post)">
+        Don't love it
+      </button>
+    </div>
+    <button class="btn btn-primary mt-1" (click)="onDeletePost(post)">
+      Supprimer
+    </button>
+  </div>
 </li>
